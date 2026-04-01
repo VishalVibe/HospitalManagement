@@ -1,6 +1,14 @@
 package com.cg.hospitalmanagementsystem.dto.response;
 
-public class PatientResponseDTO {
+import lombok.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class PatientResponseDto {
+
     public Integer ssn;
     public String name;
     public String address;

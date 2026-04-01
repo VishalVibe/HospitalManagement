@@ -1,8 +1,15 @@
 package com.cg.hospitalmanagementsystem.dto.response;
 
+import lombok.*;
+
 import java.time.LocalDateTime;
 
-public class OnCallResponseDTO {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class OnCallResponseDto {
 
     public Integer nurseId;
     public Integer blockFloor;

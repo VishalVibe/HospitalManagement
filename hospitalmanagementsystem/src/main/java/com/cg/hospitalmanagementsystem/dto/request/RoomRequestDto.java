@@ -1,9 +1,15 @@
 package com.cg.hospitalmanagementsystem.dto.request;
 
-import org.antlr.v4.runtime.misc.NotNull;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
-public class RoomRequestDTO {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class RoomRequestDto {
 
     @NotNull
     public Integer roomNumber;

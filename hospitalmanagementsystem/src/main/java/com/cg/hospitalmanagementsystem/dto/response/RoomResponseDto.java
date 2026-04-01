@@ -1,6 +1,14 @@
 package com.cg.hospitalmanagementsystem.dto.response;
 
-public class RoomResponseDTO {
+import lombok.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class RoomResponseDto {
+
     public Integer roomNumber;
     public String roomType;
     public Integer blockFloor;
