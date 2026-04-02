@@ -1,0 +1,35 @@
+package com.cg.hospitalmanagementsystem.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "stay")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Stay {
+
+    @Id
+    @Column(name = "StayID")
+    private Integer stayId;
+
+    @ManyToOne
+    @JoinColumn(name = "Patient", referencedColumnName = "SSN")
+    private Patient patient;
+
+    @ManyToOne
+    @JoinColumn(name = "Room", referencedColumnName = "RoomNumber")
+    private Room room;
+
+    @Column(name = "StayStart")
+    private LocalDateTime stayStart;
+
+    @Column(name = "StayEnd")
+    private LocalDateTime stayEnd;
+}
+
