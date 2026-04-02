@@ -21,9 +21,6 @@ public class Appointment {
     @Id
     @Column(name = "AppointmentID")
     private Integer appointmentId;
-
-
-
     @ManyToOne
     @JoinColumn(name="Patient", referencedColumnName = "SSN")
     private Patient patient;
