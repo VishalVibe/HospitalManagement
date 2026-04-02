@@ -1,6 +1,8 @@
 package com.cg.hospitalmanagementsystem.entity.id;
 
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 import lombok.*;
 
 import java.io.Serializable;
