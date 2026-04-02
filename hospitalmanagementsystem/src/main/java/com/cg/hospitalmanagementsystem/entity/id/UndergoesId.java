@@ -1,34 +1,34 @@
 package com.cg.hospitalmanagementsystem.entity.id;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Embeddable
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UndergoesId implements Serializable {
 
-    private Integer patient;
-    private Integer procedures;
-    private Integer stay;
 
-    public UndergoesId() {}
+    @Column(name = "Patient")
+    private Integer patientId;
 
-    public UndergoesId(Integer patient, Integer procedures, Integer stay) {
-        this.patient = patient;
-        this.procedures = procedures;
-        this.stay = stay;
-    }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof UndergoesId)) return false;
-        UndergoesId that = (UndergoesId) o;
-        return Objects.equals(patient, that.patient) &&
-                Objects.equals(procedures, that.procedures) &&
-                Objects.equals(stay, that.stay);
-    }
+    @Column(name = "Procedures")
+    private Integer procedureId;
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(patient, procedures, stay);
-    }
+
+    @Column(name = "Stay")
+    private Integer stayId;
+
+
+    @Column(name = "DateUndergoes")
+    private LocalDateTime dateUndergoes;
 }

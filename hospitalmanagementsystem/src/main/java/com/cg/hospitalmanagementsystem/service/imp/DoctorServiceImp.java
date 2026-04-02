@@ -4,8 +4,11 @@ import com.cg.hospitalmanagementsystem.dto.request.PhysicianRequest;
 import com.cg.hospitalmanagementsystem.dto.response.PhysicianPatientResponse;
 import com.cg.hospitalmanagementsystem.entity.Appointment;
 import com.cg.hospitalmanagementsystem.entity.Patient;
+import com.cg.hospitalmanagementsystem.entity.Prescribes;
 import com.cg.hospitalmanagementsystem.reposistory.AppointmentRepository;
 import com.cg.hospitalmanagementsystem.reposistory.DoctorRepository;
+import com.cg.hospitalmanagementsystem.reposistory.PatientRepository;
+import com.cg.hospitalmanagementsystem.reposistory.PrescriptionRepository;
 import com.cg.hospitalmanagementsystem.service.DoctorService;
 import org.springframework.stereotype.Service;
 
