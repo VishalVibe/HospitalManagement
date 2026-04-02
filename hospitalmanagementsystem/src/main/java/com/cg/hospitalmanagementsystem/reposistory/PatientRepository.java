@@ -8,13 +8,17 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Integer> {
 
 
     @Query("SELECT p FROM Patient p WHERE p.primaryCarePhysician.employeeId = :physicianId")
     List<Patient> allPatientByPhysicianId(@Param("physicianId") Integer physicianId);
-}
 
+
+    @Query("SELECT p FROM Patient p")
+    List<Patient> allPatients();
+}
 
 

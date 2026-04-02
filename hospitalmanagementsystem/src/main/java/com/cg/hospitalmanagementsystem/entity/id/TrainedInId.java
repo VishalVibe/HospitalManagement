@@ -6,9 +6,17 @@ import lombok.*;
 import java.io.Serializable;
 
 @Data
+@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+@Embeddable
 public class TrainedInId implements Serializable {
+
+
+    @Column(name = "Physician")
     private Integer physicianId;
-    private Integer treatmentId;
+
+
+    @Column(name = "Treatment")
+    private Integer procedureId;
 }

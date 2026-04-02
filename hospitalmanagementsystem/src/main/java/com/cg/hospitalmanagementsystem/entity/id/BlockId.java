@@ -5,11 +5,17 @@ import lombok.*;
 
 import java.io.Serializable;
 
+
+@Entity
+@Table(name = "block")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BlockId implements Serializable {
-    private Integer blockFloor;
-    private Integer blockCode;
+@Builder
+public class Block {
+
+
+    @EmbeddedId
+    private BlockId id;
 }
