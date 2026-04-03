@@ -4,7 +4,9 @@ import com.cg.hospitalmanagementsystem.dto.request.NurseRequest;
 import com.cg.hospitalmanagementsystem.dto.request.StaffLoginRequest;
 import com.cg.hospitalmanagementsystem.dto.request.StaffRegisterRequest;
 import com.cg.hospitalmanagementsystem.dto.response.PatientResponse;
+import com.cg.hospitalmanagementsystem.dto.response.ProcedureResponse;
 import com.cg.hospitalmanagementsystem.entity.*;
+import com.cg.hospitalmanagementsystem.service.imp.ProcedureServiceImp;
 import com.cg.hospitalmanagementsystem.service.imp.StaffServiceImp;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -72,7 +74,10 @@ public class StaffController {
 
     }
 
-
+    @GetMapping("/procedure/all")
+    public ResponseEntity<List<ProcedureResponse>> getAllProcedures() {
+        return ResponseEntity.ok(procedureServiceImp.getAllProcedures());
+    }
 
 
 }
