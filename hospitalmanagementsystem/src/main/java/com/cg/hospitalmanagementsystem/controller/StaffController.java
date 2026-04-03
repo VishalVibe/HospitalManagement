@@ -1,11 +1,10 @@
 package com.cg.hospitalmanagementsystem.controller;
 
+import com.cg.hospitalmanagementsystem.dto.request.NurseRequest;
 import com.cg.hospitalmanagementsystem.dto.request.StaffLoginRequest;
 import com.cg.hospitalmanagementsystem.dto.request.StaffRegisterRequest;
 import com.cg.hospitalmanagementsystem.dto.response.PatientResponse;
-import com.cg.hospitalmanagementsystem.entity.Nurse;
-import com.cg.hospitalmanagementsystem.entity.Patient;
-import com.cg.hospitalmanagementsystem.entity.Physician;
+import com.cg.hospitalmanagementsystem.entity.*;
 import com.cg.hospitalmanagementsystem.service.imp.StaffServiceImp;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -57,6 +56,18 @@ public class StaffController {
     public ResponseEntity<PatientResponse> getPatientById(@PathVariable Integer id){
         PatientResponse patient = staffServiceImp.fetchPatientById(id);
         return ResponseEntity.ok(patient);
+    }
+
+    @GetMapping("/appointments/{id}")
+    public ResponseEntity<Appointment> getAppointmentsById(@PathVariable Integer id){
+        Appointment appointment = staffServiceImp.getAppointmentById(id);
+        return ResponseEntity.ok(appointment);
+    }
+    @GetMapping("/appointmentsByPatientId/{id}")
+    public ResponseEntity<List<Appointment>> getAllAppointmentsByPatientId(@PathVariable Integer id){
+        List<Appointment> appointments = staffServiceImp.getAllAppointmentsByPatientId(id);
+        return ResponseEntity.ok(appointments);
+
     }
 
 
