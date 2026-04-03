@@ -3,9 +3,12 @@ package com.cg.hospitalmanagementsystem.controller;
 import com.cg.hospitalmanagementsystem.dto.request.StaffLoginRequest;
 import com.cg.hospitalmanagementsystem.dto.request.StaffRegisterRequest;
 import com.cg.hospitalmanagementsystem.dto.response.PatientResponse;
+import com.cg.hospitalmanagementsystem.dto.response.ProcedureResponse;
 import com.cg.hospitalmanagementsystem.entity.Nurse;
 import com.cg.hospitalmanagementsystem.entity.Patient;
 import com.cg.hospitalmanagementsystem.entity.Physician;
+import com.cg.hospitalmanagementsystem.entity.Procedure;
+import com.cg.hospitalmanagementsystem.service.imp.ProcedureServiceImp;
 import com.cg.hospitalmanagementsystem.service.imp.StaffServiceImp;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +20,11 @@ import java.util.List;
 public class StaffController {
 
     private final StaffServiceImp staffServiceImp;
+    private final ProcedureServiceImp procedureServiceImp;
 
-    public StaffController(StaffServiceImp staffServiceImp){
+    public StaffController(StaffServiceImp staffServiceImp, ProcedureServiceImp procedureServiceImp){
         this.staffServiceImp = staffServiceImp;
+        this.procedureServiceImp = procedureServiceImp;
     }
 
     @PostMapping("/register")
@@ -59,7 +64,10 @@ public class StaffController {
         return ResponseEntity.ok(patient);
     }
 
-
+    @GetMapping("/procedure/all")
+    public ResponseEntity<List<ProcedureResponse>> getAllProcedures() {
+        return ResponseEntity.ok(procedureServiceImp.getAllProcedures());
+    }
 
 
 }
